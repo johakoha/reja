@@ -24,6 +24,10 @@ app.get("/gift", function (req, res) {
     res.end("<h1>Siz sovg'alar bo'limidasiz</h1>");
 });
 
+app.get("/", function (req, res) {
+    res.render('project');
+});
+
 const server = http.createServer(app);
 let PORT = 5000;
 server.listen(PORT, function () {
