@@ -16,17 +16,15 @@ app.set("views", "./views"); // views papkasini ko'rsatib qo'yamiz
 app.set("view engine", "ejs"); // view engine ni ejs qilib qo'yamiz
 
 //4: Routing code
+
+app.post("/create-item", (req, res) => {
+    console.log(req.body);
+    res.json({ test: "success" });
+});
 app.get("/", function (req, res) {
-    res.end("<h1>HELLO WORLD by JohaKoha</h1>");
+    res.render("harid");
 });
 
-app.get("/gift", function (req, res) {
-    res.end("<h1>Siz sovg'alar bo'limidasiz</h1>");
-});
-
-app.get("/", function (req, res) {
-    res.render('project');
-});
 
 const server = http.createServer(app);
 let PORT = 5000;
