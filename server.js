@@ -8,7 +8,7 @@ let user;
 fs.readFile("database/user.json", "utf-8", (err, data) => {
     if (err) {
         console.log("ERROR: ", err);
-    }else {
+    } else {
         user = JSON.parse(data);
     }
 });
@@ -32,8 +32,8 @@ app.post("/create-item", (req, res) => {
     res.json({ test: "success" });
 });
 
-app.get(`/author`,(req,res)=> {
-    res.render("author", {user: user});
+app.get(`/author`, (req, res) => {
+    res.render("author", { user: user });
 });
 
 app.get("/", function (req, res) {
