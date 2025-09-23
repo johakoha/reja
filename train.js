@@ -17,12 +17,21 @@ async function maslahatBering(a) {
   else if (a > 50 && a <= 60) return list[4];
   else {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
+      setInterval(() => {
         resolve(list[5]);
       }, 5000);
     });
   }
 }
+
+console.log("passed here 0");
+maslahatBering(70, (err, data) => {
+  if (err) console.log("ERROR:", err);
+  else {
+    console.log(data);
+  }
+});
+console.log("passed here 1");
 
 // then/catch
 // console.log("passed here 0");
@@ -36,14 +45,9 @@ async function maslahatBering(a) {
 // console.log("passed here 1");
 
 // async/await
-async function run() {
-    let javob = await maslahatBering(65);
-    console.log(javob);
-    javob = await maslahatBering(31);
-    console.log(javob);
-    javob = await maslahatBering(41);
-    console.log(javob);
-}
-
-run();
+// async function run() {
+//     let javob = await maslahatBering(25);
+//     console.log(javob);
+// }
+// run();
 
