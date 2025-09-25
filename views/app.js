@@ -1,8 +1,8 @@
 console.log("Web Serverni boshlash");
 const express = require("express");
 const app = express(); // Express ilovasini yaratish
-const http = require("http");
 const fs = require("fs");
+const http = require("http"); 
 
 let user;
 fs.readFile("database/user.json", "utf-8", (err, data) => {
@@ -12,6 +12,11 @@ fs.readFile("database/user.json", "utf-8", (err, data) => {
         user = JSON.parse(data);
     }
 });
+
+
+// MongoDB connect
+
+
 
 //1: Kirish code
 app.use(express.static("public"));  // 'public' folderi ochiq degani clientlar uchun
@@ -33,6 +38,9 @@ app.post("/create-item", (req, res) => {
 });
 
 app.get(`/author`, (req, res) => {
+    if (!user) {
+        return res.status(503).send("User data is loading, please try again later.");
+    }
     res.render("author", { user: user });
 });
 
@@ -49,3 +57,4 @@ server.listen(PORT, function () {
     );
 });
 
+module.exports = app;
