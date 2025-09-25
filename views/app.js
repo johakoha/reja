@@ -2,7 +2,7 @@ console.log("Web Serverni boshlash");
 const express = require("express");
 const app = express(); // Express ilovasini yaratish
 const fs = require("fs");
-const http = require("http"); 
+
 
 let user;
 fs.readFile("database/user.json", "utf-8", (err, data) => {
@@ -49,12 +49,5 @@ app.get("/", function (req, res) {
 });
 
 
-const server = http.createServer(app);
-let PORT = 3000;
-server.listen(PORT, function () {
-    console.log(
-        `Server is running successfully on port: ${PORT}, http://localhost:${PORT}`
-    );
-});
 
 module.exports = app;
