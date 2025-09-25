@@ -4,6 +4,7 @@ const app = express(); // Express ilovasini yaratish
 const fs = require("fs");
 
 
+// Read user.json
 let user;
 fs.readFile("database/user.json", "utf-8", (err, data) => {
     if (err) {
@@ -15,7 +16,7 @@ fs.readFile("database/user.json", "utf-8", (err, data) => {
 
 
 // MongoDB connect
-
+const db = require("../server").db; // Fixed path and usage
 
 
 //1: Kirish code
@@ -34,10 +35,18 @@ app.set("view engine", "ejs"); // view engine ni ejs qilib qo'yamiz
 
 app.post("/create-item", (req, res) => {
     console.log(req.body);
-    res.json({ test: "success" });
-});
+    const new_reja = req.body.reja;
+    db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.end("something went wrong");
+        } else {
+            res.send("successfully added"); // Fixed: use res.send instead of res.redirect for message
+        }
+    }); // <-- Fixed: closed insertOne callback
+}); // <-- Fixed: closed app.post
 
-app.get(`/author`, (req, res) => {
+app.get("/author", (req, res) => {
     if (!user) {
         return res.status(503).send("User data is loading, please try again later.");
     }
@@ -45,9 +54,16 @@ app.get(`/author`, (req, res) => {
 });
 
 app.get("/", function (req, res) {
-    res.render("reja");
+    console.log("user entered /");
+    db.collection("plans").find().toArray((err, items) => {
+        if (err) {
+            console.log(err);
+            res.end("something went wrong");
+        } else {
+            res.render("reja", { items: data });
+        }
+    });
 });
-
 
 
 module.exports = app;

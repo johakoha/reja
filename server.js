@@ -11,10 +11,12 @@ mongodb.connect(
     useUnifiedTopology: true,
   },
   (err, client) => {
-    if (err) console.log("ERROR on connection MongoDB");
-    else {
+    if (err) {
+      console.error("ERROR on connection MongoDB:", err);
+    } else {
       console.log("MongoDB connection succeed");
-      console.log(client);
+      db = client.db("reja"); // <-- Add this line to select your database
+      module.exports.db = db; // <-- Export the db object
       const app = require("./views/app");
       const server = http.createServer(app);
       let PORT = 3000;
