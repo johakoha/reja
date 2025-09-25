@@ -99,21 +99,47 @@
 // 23rd september class example
 
 // DEFINE
-function qoldiqliBolish(a, b, callback) {
-  if (b === 0) {
-    callback("Mahraj nolga teng emas!", null);
-  } else {
-    const c = a % b;
-    callback(null, c);
-  }
+// function qoldiqliBolish(a, b, callback) {
+//   if (b === 0) {
+//     callback("Mahraj nolga teng emas!", null);
+//   } else {
+//     const c = a % b;
+//     callback(null, c);
+//   }
+// }
+
+// // CALL
+// qoldiqliBolish(7, 5, (err, data) => {
+//   if (err) {
+//     console.log("ERROR:", err);
+//   } else {
+//     console.log("data:", data);
+//     console.log("MANTIQLAR...");
+//   }
+// });
+
+
+
+// TASK B
+
+// Shunday, function tuzingki, bu function yagona parametrga ega bo'lib
+// string tarkibidagi sonlar miqdorini qaytarsin
+
+// Masalan: countDigits("ad2a54y79wet0sfgb9")
+// Yuqoridagi string tarkibida 7 dona raqam qatnashganligi uchun, natija 7 qaytadi
+
+//Yechimi:
+
+function countIntegers(input) {
+  let count = 0;
+
+  
+    for (let index in input) {
+      if (input[index] >= 0 && input[index] <= 9) {
+        count++;
+      }
+    }
+   return count;
 }
 
-// CALL
-qoldiqliBolish(7, 5, (err, data) => {
-  if (err) {
-    console.log("ERROR:", err);
-  } else {
-    console.log("data:", data);
-    console.log("MANTIQLAR...");
-  }
-});
+console.log(countIntegers("duhf3uhr38239d"));
