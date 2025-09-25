@@ -88,12 +88,32 @@
 // The NOTORIOUS MMA - CONNOR MCGREGOR: shut your mouth and take my money!
 // "Precision beats power, timing beats speed."
 
-function countLetter(letter, word) {
-  return word.split('').filter(c => c === letter).length;
+// function countLetter(letter, word) {
+//   return word.split('').filter(c => c === letter).length;
+// }
+
+// console.log("McGregor says:", countLetter("o", "notorious")); // 3 ta o harfi qatnashgan
+
+
+
+// 23rd september class example
+
+// DEFINE
+function qoldiqliBolish(a, b, callback) {
+  if (b === 0) {
+    callback("Mahraj nolga teng emas!", null);
+  } else {
+    const c = a % b;
+    callback(null, c);
+  }
 }
 
-console.log("McGregor says:", countLetter("o", "notorious")); // 3 ta o harfi qatnashgan
-
-
-
-
+// CALL
+qoldiqliBolish(7, 5, (err, data) => {
+  if (err) {
+    console.log("ERROR:", err);
+  } else {
+    console.log("data:", data);
+    console.log("MANTIQLAR...");
+  }
+});
