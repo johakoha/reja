@@ -120,6 +120,8 @@
 
 
 
+
+
 // TASK B
 
 // Shunday, function tuzingki, bu function yagona parametrga ega bo'lib
