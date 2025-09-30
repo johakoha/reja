@@ -37,3 +37,26 @@ axios
 });
 });
 
+document.addEventListener("click", function(e) {
+  // delete oper
+  console.log(e.target);
+  if (e.target.classList.contains("delete-me")) {
+    if (confirm("Aniq o'chirmoqchimisiz?")) {
+      axios
+        .post("delete-item", {id: e.target.getAttribute("data-id") })
+        .then(response => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.remove();
+        })
+        .catch(err => {
+          console.log("Iltimos qaytadan harakat qiling!");
+        });
+    }
+  }
+
+  // edit oper
+  if(e.target.classList.contains("edit-me")) {
+    alert("siz edit tugmasini bosdingiz");
+  }
+})
+
