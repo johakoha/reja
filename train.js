@@ -162,38 +162,72 @@
 
 // Masalani yechimi:
 
-class Shop {
-  constructor(non, qaymoq, moxito) {
-    this.non = non;
-    this.qaymoq = qaymoq;
-    this.moxito = moxito;
-  }
+// class Shop {
+//   constructor(non, qaymoq, moxito) {
+//     this.non = non;
+//     this.qaymoq = qaymoq;
+//     this.moxito = moxito;
+//   }
 
-  getTime() {
-    const now = new Date();
-    return `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
-  }
+//   getTime() {
+//     const now = new Date();
+//     return `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+//   }
 
-  qoldiq() {
-    console.log(`Hozir ${this.getTime()}da ${this.non}ta non, ${this.qaymoq}ta qaymoq va ${this.moxito}ta moxito mavjud`);
-  }
+//   qoldiq() {
+//     console.log(`Hozir ${this.getTime()}da ${this.non}ta non, ${this.qaymoq}ta qaymoq va ${this.moxito}ta moxito mavjud`);
+//   }
 
-  sotish(mahsulot, miqdor) {
-    this[mahsulot] -= miqdor;
-    console.log(`Hozir ${this.getTime()}da ${miqdor}ta ${mahsulot} sotildi`);
-  }
+//   sotish(mahsulot, miqdor) {
+//     this[mahsulot] -= miqdor;
+//     console.log(`Hozir ${this.getTime()}da ${miqdor}ta ${mahsulot} sotildi`);
+//   }
 
-  qabul(mahsulot, miqdor) {
-    this[mahsulot] += miqdor;
-    console.log(`Hozir ${this.getTime()}da ${miqdor}ta ${mahsulot} qabul qilindi`);
+//   qabul(mahsulot, miqdor) {
+//     this[mahsulot] += miqdor;
+//     console.log(`Hozir ${this.getTime()}da ${miqdor}ta ${mahsulot} qabul qilindi`);
+//   }
+// }
+
+// // Test qilib ko'ramiz, natija qaytishi kerak
+// // Test
+// const shop = new Shop(4, 5, 2);
+// shop.qoldiq();
+// shop.sotish("non", 3);
+// shop.qabul("moxito", 4);
+// shop.qoldiq();
+
+
+
+// TASK - D
+
+// Masalani izohi:
+// Ikkita parametra ega function tuzing, va functioning
+// berilgan birinchi va ikkinchi parametr qiymatlari o'zaro to'liq
+// mos kelsa true qiymat qaytarsin
+// Masalan: checkContent("mitgroup", "gmtiprou");
+// Yuqoridagi misolda birinchi va ikkinchi parametr qiymatli bir xil
+// ya'ni bir xil harflar qatnashganligi uchun true qiymat qaytaradi.
+
+// Masalani yechimi:
+
+function checkContent(str1, str2) {
+  if (str1.length !== str2.length) return false;
+  
+  for (let char of str1) {
+    if (!str2.includes(char)) return false;
   }
+  
+  for (let char of str2) {
+    if (!str1.includes(char)) return false;
+  }
+  
+  return true;
 }
 
-// Test qilib ko'ramiz, natija qaytishi kerak
-// Test
-const shop = new Shop(4, 5, 2);
-shop.qoldiq();
-shop.sotish("non", 3);
-shop.qabul("moxito", 4);
-shop.qoldiq();
-
+// Test qilib ko'ramiz 
+// Bu misolda funksiyani parametrlarini uzunliklariga qarab tekshiradi
+// Shunda uzunligi mos kelishi kelmasligiga qarab false yoki true qaytaradi
+console.log(checkContent("listen", "silent")); // true
+console.log(checkContent("desserts", "stressed")); // true
+console.log(checkContent("salom", "alik")); // false
