@@ -231,3 +231,6 @@ function checkContent(str1, str2) {
 console.log(checkContent("listen", "silent")); // true
 console.log(checkContent("desserts", "stressed")); // true
 console.log(checkContent("salom", "alik")); // false
+
+
+
