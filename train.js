@@ -211,26 +211,46 @@
 
 // Masalani yechimi:
 
-function checkContent(str1, str2) {
-  if (str1.length !== str2.length) return false;
+// function checkContent(str1, str2) {
+//   if (str1.length !== str2.length) return false;
   
-  for (let char of str1) {
-    if (!str2.includes(char)) return false;
-  }
+//   for (let char of str1) {
+//     if (!str2.includes(char)) return false;
+//   }
   
-  for (let char of str2) {
-    if (!str1.includes(char)) return false;
-  }
+//   for (let char of str2) {
+//     if (!str1.includes(char)) return false;
+//   }
   
-  return true;
-}
+//   return true;
+// }
 
 // Test qilib ko'ramiz 
 // Bu misolda funksiyani parametrlarini uzunliklariga qarab tekshiradi
 // Shunda uzunligi mos kelishi kelmasligiga qarab false yoki true qaytaradi
-console.log(checkContent("listen", "silent")); // true
-console.log(checkContent("desserts", "stressed")); // true
-console.log(checkContent("salom", "alik")); // false
+// console.log(checkContent("listen", "silent")); // true
+// console.log(checkContent("desserts", "stressed")); // true
+// console.log(checkContent("salom", "alik")); // false
 
 
 
+
+// TASK - E
+
+// Masalani izohi:
+
+// Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+// MASALAN: getReverse("hello") return qilsin "olleh"
+
+// Masalani yechimi:
+
+function getReverse(str) {
+  return str.split('').reverse().join('');
+}
+
+// Test qilib ko'ramiz
+console.log(getReverse("batman")); // namtab
+console.log(getReverse("spiderman")); // namredips
+console.log(getReverse("free wakanda")); // adnakaw eerf
+
+//tugadi 
