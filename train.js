@@ -244,13 +244,43 @@
 
 // Masalani yechimi:
 
-function getReverse(str) {
-  return str.split('').reverse().join('');
+// function getReverse(str) {
+//   return str.split('').reverse().join('');
+// }
+
+// // Test qilib ko'ramiz
+// console.log(getReverse("batman")); // namtab
+// console.log(getReverse("spiderman")); // namredips
+// console.log(getReverse("free wakanda")); // adnakaw eerf
+
+// //tugadi 
+
+
+// TASK - F
+
+// Masalani izohi:
+
+// Yagona string argumentga ega findDoublers nomli function tuzing
+// Agar stringda bittadan ortiq bir xil harflar ishtirok etgan bo'lsa
+// true yokida false natija qaytarsin.
+// MASALAN: findDoublers("hello"); natija true qaytadi.
+//  Sababi ikki marotaba takrorlangan 'll' harfi mavjud!
+
+// Masalani yechimi:
+
+function findDoublers(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) !== str.lastIndexOf(str[i])) {
+      return true;
+    }
+  }
+  return false;
 }
 
 // Test qilib ko'ramiz
-console.log(getReverse("batman")); // namtab
-console.log(getReverse("spiderman")); // namredips
-console.log(getReverse("free wakanda")); // adnakaw eerf
+console.log(findDoublers("hello")); // true
+console.log(findDoublers("jammes")); // true
+console.log(findDoublers("spider")); // false
 
-//tugadi 
+// tugadi
+
